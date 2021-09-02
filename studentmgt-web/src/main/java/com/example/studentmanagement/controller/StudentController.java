@@ -37,9 +37,9 @@ public class StudentController {
         if (student == null) {
             return new ResponseEntity<Student>(HttpStatus.BAD_REQUEST);
         } else {
-            HttpHeaders httpHeaders= new HttpHeaders();
-            httpHeaders.setLocation(URI.create("http://localhost:8080/api/students/" +student.getStudentId()));
-            return new ResponseEntity<Student>(studentRepository.addStudent(student),httpHeaders, HttpStatus.CREATED);
+            HttpHeaders httpHeader= new HttpHeaders();
+            httpHeader.setLocation(URI.create("http://localhost:8080/api/students/" +student.getStudentId()));
+            return new ResponseEntity<Student>(studentRepository.addStudent(student),httpHeader, HttpStatus.CREATED);
         }
     }
 
